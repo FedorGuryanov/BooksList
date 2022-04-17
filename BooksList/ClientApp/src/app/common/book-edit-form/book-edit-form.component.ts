@@ -43,7 +43,11 @@ export class AppBookEditFormComponent implements OnChanges {
     this.bookView = this.book ? {...this.book} : {...EMPTY_BOOK};
   }
 
-    public onSubmit(): void {
-        this.bookSubmit.emit({ ...this.bookView, changeDate: new Date().toISOString() });
+  public objectEqual(): boolean {
+    return this.book ? JSON.stringify(this.book) === JSON.stringify(this.bookView): false;
+  }
+
+  public onSubmit(): void {
+    this.bookSubmit.emit({...this.bookView, changeDate: new Date().toISOString()});
   }
 }

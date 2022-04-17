@@ -22,7 +22,7 @@
         <button
                 mat-raised-button color="primary"
                 (click)="onSubmit()"
-                [disabled]="loading || !bookView.title || !bookView.authors || !bookView.description || !bookView.publishDate"
+                [disabled]="loading || !bookView.title || !bookView.authors || !bookView.description || !bookView.publishDate || objectEqual()"
         >
             {{submitText}}
         </button>

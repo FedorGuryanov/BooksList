@@ -1,3 +1,5 @@
 <div>
-    book page {{id}}
+    <button mat-stroked-button class="app-book-page__back" (click)="goToHome()">To Books List</button>
+    <app-book-edit-form [book]="bookView" submitText="Save" *ngIf="bookView">
+    </app-book-edit-form>
 </div>
