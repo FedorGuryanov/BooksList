@@ -1,4 +1,11 @@
-/BooksList/bin/Debug
-/BooksList/ClientApp/node_modules
-/BooksList/ClientApp/.angular
-/BooksList/obj/Debug
+BooksList/bin/Debug
+BooksList/ClientApp/node_modules
+BooksList/ClientApp/.angular
+BooksList/obj
+BooksList/packages
+BooksList/bin
+*.suo
+*.user
+_ReSharper.*
+*.cache
+.vs
