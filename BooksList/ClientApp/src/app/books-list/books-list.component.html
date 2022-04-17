@@ -1,0 +1,28 @@
+<div class="app-books-list">
+    <div class="app-books-list__create">
+        <mat-accordion>
+            <mat-expansion-panel>
+                <mat-expansion-panel-header>
+                    <mat-panel-title>
+                        Add a Book
+                    </mat-panel-title>
+                </mat-expansion-panel-header>
+                <app-book-edit-form (bookSubmit)="createBook($event)"></app-book-edit-form>
+            </mat-expansion-panel>
+        </mat-accordion>
+    </div>
+    <mat-form-field class="app-books-list__search" appearance="outline">
+        <mat-label>Search Book</mat-label>
+        <input matInput type="text"
+               [(ngModel)]="searchValue"
+               [disabled]="bookItemsLoading"
+               (ngModelChange)="onSearch()"
+        >
+        <button *ngIf="searchValue" matSuffix mat-icon-button aria-label="Clear"
+                (click)="searchValue=''; onSearch()">
+            <mat-icon>close</mat-icon>
+        </button>
+    </mat-form-field>
+    <app-books-list-table [bookItems]="bookItemsFiltered" *ngIf="bookItems">
+    </app-books-list-table>
+</div>

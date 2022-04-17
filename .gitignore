@@ -1,6 +1,7 @@
 BooksList/bin/Debug
 BooksList/ClientApp/node_modules
 BooksList/ClientApp/.angular
+BooksList/ClientApp/.idea
 BooksList/obj
 BooksList/packages
 BooksList/bin
