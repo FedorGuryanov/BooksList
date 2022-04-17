@@ -15,31 +15,31 @@ export class AppBookListService {
 
   public fetchBookItems(): void {
     this.isLoading.next(true);
-    this.http.get<AppBook[]>(BASE_URL + 'api/bookitems')
-      .subscribe((res) => {
-        this.isLoading.next(false);
-        this.books.next(res);
-      }, () => {
-        this.isLoading.next(false);
-      });
-    // setTimeout(() => {
-    //   this.isLoading.next(false);
-    //   this.books.next([{
-    //     id: 1,
-    //     changeDate: '2022-04-17T08:47:07.812858Z',
-    //     title: 'Test Book2 New Last',
-    //     publishDate: '2022-04-10T11:53:56.481313+03:00',
-    //     description: 'Next 1 Description',
-    //     authors: 'Guryanov F.A.'
-    //   }, {
-    //     id: 2,
-    //     changeDate: '2022-04-17T08:47:07.812858Z',
-    //     title: 'Test Book2333 New Last',
-    //     publishDate: '2022-04-10T11:53:56.481313+03:00',
-    //     description: 'Next 2 Description',
-    //     authors: 'Guryanov F.A.'
-    //   }]);
-    // }, 1000);
+    // this.http.get<AppBook[]>(BASE_URL + 'api/bookitems')
+    //   .subscribe((res) => {
+    //     this.isLoading.next(false);
+    //     this.books.next(res);
+    //   }, () => {
+    //     this.isLoading.next(false);
+    //   });
+    setTimeout(() => {
+      this.isLoading.next(false);
+      this.books.next([{
+        id: 1,
+        changeDate: '2022-04-17T08:47:07.812858Z',
+        title: 'Test Book2 New Last',
+        publishDate: '2022-04-10T11:53:56.481313+03:00',
+        description: 'Next 1 Description',
+        authors: 'Guryanov F.A.'
+      }, {
+        id: 2,
+        changeDate: '2022-04-17T08:47:07.812858Z',
+        title: 'Test Book2333 New Last',
+        publishDate: '2022-04-10T11:53:56.481313+03:00',
+        description: 'Next 2 Description',
+        authors: 'Guryanov F.A.'
+      }]);
+    }, 1000);
   }
 
   public createBookItem(book: AppBook): void {

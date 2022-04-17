@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, Input, OnChanges, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, EventEmitter, Input, OnChanges, Output, ViewChild } from '@angular/core';
 import { AppBook } from '../../models/book';
 import { MatPaginator, PageEvent } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
@@ -16,6 +16,9 @@ export class AppBooksListTableComponent implements OnChanges, AfterViewInit {
   @Input()
   public bookItems: AppBook[] | null;
 
+  @Output()
+  public rowClick = new EventEmitter<number>();
+
   public dataSource = new MatTableDataSource<AppBook>([]);
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
@@ -26,7 +29,6 @@ export class AppBooksListTableComponent implements OnChanges, AfterViewInit {
 
   public ngOnChanges(): void {
     this.dataSource.data = this.bookItems;
-    // this.filterViewItems();
   }
 
   public ngAfterViewInit() {
@@ -34,11 +36,13 @@ export class AppBooksListTableComponent implements OnChanges, AfterViewInit {
     this.dataSource.sort = this.sort;
   }
 
-  public getDateFomatted(date: string): string {
+  public getDateFormatted(date: string): string {
     return new Date(Date.parse(date)).toLocaleDateString();
   }
 
   public goToId(id: number) {
-    console.log('GOTO: ', id);
+    if (id) {
+      this.rowClick.emit(id);
+    }
   }
 }

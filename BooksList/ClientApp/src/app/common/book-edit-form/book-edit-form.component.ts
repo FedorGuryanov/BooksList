@@ -19,6 +19,12 @@ export class AppBookEditFormComponent implements OnChanges {
   @Input()
   public book: AppBook;
 
+  @Input()
+  public loading: boolean;
+
+  @Input()
+  public submitText: string;
+
   @Output()
   public bookSubmit = new EventEmitter<AppBook>();
 

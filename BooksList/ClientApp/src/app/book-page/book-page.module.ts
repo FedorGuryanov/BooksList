@@ -1,5 +1,4 @@
 import { NgModule } from '@angular/core';
-import { AppBooksListComponent } from './books-list.component';
 import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
@@ -8,15 +7,14 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
-import { AppBooksListTableComponent } from './books-list-table/books-list-table.component';
 import { MatSortModule } from '@angular/material/sort';
 import { AppBookEditFormModule } from '../common/book-edit-form/book-edit-form.module';
 import { MatExpansionModule } from '@angular/material/expansion';
+import { AppBookPageComponent } from './book-page.component';
 
 @NgModule({
   declarations: [
-    AppBooksListComponent,
-    AppBooksListTableComponent
+    AppBookPageComponent
   ],
   imports: [
     MatInputModule,
@@ -31,8 +29,8 @@ import { MatExpansionModule } from '@angular/material/expansion';
     HttpClientModule,
     FormsModule
   ],
-  exports: [AppBooksListComponent],
+  exports: [AppBookPageComponent],
   providers: [],
 })
-export class AppBooksListModule {
+export class AppBookPageModule {
 }
