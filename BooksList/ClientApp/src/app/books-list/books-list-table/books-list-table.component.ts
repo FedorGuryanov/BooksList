@@ -1,20 +1,21 @@
-import { AfterViewInit, Component, EventEmitter, Input, OnChanges, Output, ViewChild } from '@angular/core';
+import { AfterViewInit, ChangeDetectionStrategy, Component, EventEmitter, Input, OnChanges, Output, ViewChild } from '@angular/core';
 import { AppBook } from '../../models/book';
-import { MatPaginator, PageEvent } from '@angular/material/paginator';
+import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatSort } from '@angular/material/sort';
 
 @Component({
   selector: 'app-books-list-table',
   templateUrl: './books-list-table.component.html',
-  styleUrls: ['./books-list-table.component.scss']
+  styleUrls: ['./books-list-table.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class AppBooksListTableComponent implements OnChanges, AfterViewInit {
   public readonly displayedColumns: string[] = ['id', 'title', 'authors', 'publishDate'];
   public readonly pageSizes: number[] = [20, 50, 100];
 
   @Input()
-  public bookItems: AppBook[] | null;
+  public bookItems: AppBook[];
 
   @Output()
   public rowClick = new EventEmitter<number>();

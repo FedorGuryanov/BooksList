@@ -1,0 +1,38 @@
+.app-book-history-table {
+    &__change {
+        &-old {
+            background: #fcc9ba;
+            text-decoration: line-through;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        &-new {
+            background: #e9fde9;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+    }
+
+    table {
+        width: 100%;
+        table-layout: fixed;
+    }
+
+    td {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+
+    th.mat-header-cell:first-of-type, td.mat-cell:first-of-type, td.mat-footer-cell:first-of-type {
+        //width: 64px;
+    }
+
+    th.mat-header-cell:last-of-type, td.mat-cell:last-of-type, td.mat-footer-cell:last-of-type {
+        //width: 128px;
+        padding-left: 16px;
+    }
+}

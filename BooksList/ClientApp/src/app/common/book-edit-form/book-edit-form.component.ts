@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnChanges, OnInit, Output } from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnChanges, OnInit, Output } from '@angular/core';
 import { AppBook } from '../../models/book';
 
 const EMPTY_BOOK = {
@@ -13,7 +13,8 @@ const EMPTY_BOOK = {
 @Component({
   selector: 'app-book-edit-form',
   templateUrl: './book-edit-form.component.html',
-  styleUrls: ['./book-edit-form.component.scss']
+  styleUrls: ['./book-edit-form.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class AppBookEditFormComponent implements OnChanges {
   @Input()

@@ -1,0 +1,74 @@
+<div class="app-book-history-table">
+    <table mat-table [dataSource]="dataSource" matSort>
+        <ng-container matColumnDef="title">
+            <th mat-header-cell *matHeaderCellDef> Title</th>
+            <td mat-cell *matCellDef="let element">
+                <div class="app-book-history-table__change" [title]="element.title.new" *ngIf="element.title">
+                    <div class="app-book-history-table__change-new">
+                        {{element.title.new}}
+                    </div>
+                    <div class="app-book-history-table__change-old" *ngIf="element.title.old">
+                        {{element.title.old}}
+                    </div>
+                </div>
+            </td>
+        </ng-container>
+
+        <ng-container matColumnDef="authors">
+            <th mat-header-cell *matHeaderCellDef> Authors</th>
+            <td mat-cell *matCellDef="let element">
+                <div class="app-book-history-table__change" [title]="element.authors.new" *ngIf="element.authors">
+                    <div class="app-book-history-table__change-new">
+                        {{element.authors.new}}
+                    </div>
+                    <div class="app-book-history-table__change-old" *ngIf="element.authors.old">
+                        {{element.authors.old}}
+                    </div>
+                </div>
+            </td>
+        </ng-container>
+
+        <ng-container matColumnDef="description">
+            <th mat-header-cell *matHeaderCellDef> Description</th>
+            <td mat-cell *matCellDef="let element">
+                <div class="app-book-history-table__change" [title]="element.description.new" *ngIf="element.description">
+                    <div class="app-book-history-table__change-new">
+                        {{element.description.new}}
+                    </div>
+                    <div class="app-book-history-table__change-old" *ngIf="element.description.old">
+                        {{element.description.old}}
+                    </div>
+                </div>
+            </td>
+        </ng-container>
+
+        <ng-container matColumnDef="publishDate">
+            <th mat-header-cell *matHeaderCellDef> Publish Date</th>
+            <td mat-cell *matCellDef="let element">
+                <div class="app-book-history-table__change" *ngIf="element.publishDate">
+                    <div class="app-book-history-table__change-new">
+                        {{getDateFormatted(element.publishDate.new.toString())}}
+                    </div>
+                    <div class="app-book-history-table__change-old" *ngIf="element.publishDate.old">
+                        {{getDateFormatted(element.publishDate.old)}}
+                    </div>
+                </div>
+            </td>
+        </ng-container>
+        <ng-container matColumnDef="changeDate">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Change Date</th>
+            <td mat-cell *matCellDef="let element" [title]="getChangeDateFormatted(element.changeDate)">
+                {{getChangeDateFormatted(element.changeDate)}}
+            </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+    <mat-paginator [length]="bookItems.length"
+                   [pageSize]="pageSizes[0]"
+                   [pageSizeOptions]="pageSizes"
+                   aria-label="Select page">
+    </mat-paginator>
+</div>
+

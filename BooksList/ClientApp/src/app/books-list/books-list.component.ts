@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnDestroy, OnInit } from '@angular/core';
 import { AppBookListService } from '../services/books-list.service';
 import { AppBook } from '../models/book';
 import { Router } from '@angular/router';
@@ -8,7 +8,8 @@ import { Subscription } from 'rxjs';
 @Component({
   selector: 'app-books-list',
   templateUrl: './books-list.component.html',
-  styleUrls: ['./books-list.component.scss']
+  styleUrls: ['./books-list.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class AppBooksListComponent implements OnInit, OnDestroy {
   public searchValue: string;
@@ -18,16 +19,18 @@ export class AppBooksListComponent implements OnInit, OnDestroy {
 
   private subscription: Subscription = new Subscription();
 
-  constructor(private bookListService: AppBookListService, private router: Router) {
+  constructor(private bookListService: AppBookListService, private router: Router, private cdr: ChangeDetectorRef) {
   }
 
   public ngOnInit(): void {
     this.subscription.add(this.bookListService.getIsLoading().subscribe((loading) => {
       this.bookItemsLoading = loading;
+      this.cdr.markForCheck();
     }));
     this.subscription.add(this.bookListService.getBookItems().subscribe((items) => {
       this.bookItems = items;
       this.onSearch();
+      this.cdr.markForCheck();
     }));
   }
 

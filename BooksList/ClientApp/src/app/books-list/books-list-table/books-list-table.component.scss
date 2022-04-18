@@ -21,4 +21,9 @@
     td {
         cursor: pointer;
     }
+
+    &__link,
+    &__link:visited {
+        color: black;
+    }
 }

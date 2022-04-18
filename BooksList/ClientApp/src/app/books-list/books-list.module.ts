@@ -12,6 +12,7 @@ import { AppBooksListTableComponent } from './books-list-table/books-list-table.
 import { MatSortModule } from '@angular/material/sort';
 import { AppBookEditFormModule } from '../common/book-edit-form/book-edit-form.module';
 import { MatExpansionModule } from '@angular/material/expansion';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { MatExpansionModule } from '@angular/material/expansion';
     MatExpansionModule,
     AppBookEditFormModule,
     CommonModule,
+    RouterModule,
     HttpClientModule,
     FormsModule
   ],

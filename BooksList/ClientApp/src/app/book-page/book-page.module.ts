@@ -11,10 +11,13 @@ import { MatSortModule } from '@angular/material/sort';
 import { AppBookEditFormModule } from '../common/book-edit-form/book-edit-form.module';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { AppBookPageComponent } from './book-page.component';
+import { AppBookHistoryTableComponent } from './book-history-table/book-history-table.component';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 @NgModule({
   declarations: [
-    AppBookPageComponent
+    AppBookPageComponent,
+    AppBookHistoryTableComponent
   ],
   imports: [
     MatInputModule,
@@ -23,6 +26,7 @@ import { AppBookPageComponent } from './book-page.component';
     MatTableModule,
     MatPaginatorModule,
     MatSortModule,
+    MatProgressSpinnerModule,
     MatExpansionModule,
     AppBookEditFormModule,
     CommonModule,

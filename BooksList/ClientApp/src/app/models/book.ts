@@ -7,3 +7,16 @@ export interface AppBook {
   description: string;
   authors: string;
 }
+
+export interface ValueChange {
+  old?: string;
+  new: string;
+}
+
+export interface AppBookChange {
+  changeDate: string;
+  title?: ValueChange;
+  publishDate?: ValueChange;
+  description?: ValueChange;
+  authors?: ValueChange;
+}

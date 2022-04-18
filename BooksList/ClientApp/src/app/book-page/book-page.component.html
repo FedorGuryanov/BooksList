@@ -1,5 +1,16 @@
 <div>
     <button mat-stroked-button class="app-book-page__back" (click)="goToHome()">To Books List</button>
-    <app-book-edit-form [book]="bookView" submitText="Save" *ngIf="bookView">
+    <app-book-edit-form [book]="bookView" (bookSubmit)="bookSubmit($event)" submitText="Save" *ngIf="bookView">
     </app-book-edit-form>
+    <mat-progress-spinner
+            class="app-book-page__spinner"
+            *ngIf="!bookView"
+            diameter="50"
+            mode="indeterminate">
+    </mat-progress-spinner>
+    <h2 class="app-book-page__title" *ngIf="bookChanges">
+        Changes:
+    </h2>
+    <app-book-history-table [bookItems]="bookChanges" *ngIf="bookChanges">
+    </app-book-history-table>
 </div>
