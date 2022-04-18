@@ -54,6 +54,13 @@ export class AppBookPageComponent implements OnInit, OnDestroy {
     this.bookListService.updateBookItem(book);
   }
 
+  public delete(): void {
+    const ok = confirm(`Are you sure you want to delete book ${this.bookView.title}?`);
+    if (ok) {
+      this.bookListService.deleteBook(this.bookView.id, this.router);
+    }
+  }
+
   private updateView(): void {
     this.bookView = this.id && this.bookItems ? this.bookItems.find(item => item.id === this.id) : null;
     if (this.bookView) {

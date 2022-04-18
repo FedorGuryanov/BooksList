@@ -13,6 +13,7 @@ import { MatExpansionModule } from '@angular/material/expansion';
 import { AppBookPageComponent } from './book-page.component';
 import { AppBookHistoryTableComponent } from './book-history-table/book-history-table.component';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
     MatSortModule,
     MatProgressSpinnerModule,
     MatExpansionModule,
+    MatSlideToggleModule,
     AppBookEditFormModule,
     CommonModule,
     HttpClientModule,

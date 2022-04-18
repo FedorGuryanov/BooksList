@@ -1,7 +1,10 @@
 <div>
-    <button mat-stroked-button class="app-book-page__back" (click)="goToHome()">To Books List</button>
+    <button mat-button class="app-book-page__back" (click)="goToHome()">Books</button> / {{bookView?.title}}
     <app-book-edit-form [book]="bookView" (bookSubmit)="bookSubmit($event)" submitText="Save" *ngIf="bookView">
     </app-book-edit-form>
+    <div class="app-book-page__delete" *ngIf="bookView">
+        <button mat-stroked-button color="warn" (click)="delete()">Delete Book</button>
+    </div>
     <mat-progress-spinner
             class="app-book-page__spinner"
             *ngIf="!bookView"

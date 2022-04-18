@@ -1,4 +1,17 @@
 <div class="app-book-history-table">
+    <div class="app-book-history-table__filters">
+        <h3>Filter by changes:</h3>
+        <div class="app-book-history-table__filters-inner">
+            <mat-slide-toggle
+                    *ngFor="let column of allColumns"
+                    class="app-book-history-table__filters-toggle"
+                    color="primary"
+                    (change)="filterValues[column] = $event.checked; updateFilter()"
+                    [checked]="filterValues[column]">
+                {{filterTitles[column]}}
+            </mat-slide-toggle>
+        </div>
+    </div>
     <table mat-table [dataSource]="dataSource" matSort>
         <ng-container matColumnDef="title">
             <th mat-header-cell *matHeaderCellDef> Title</th>
@@ -31,7 +44,8 @@
         <ng-container matColumnDef="description">
             <th mat-header-cell *matHeaderCellDef> Description</th>
             <td mat-cell *matCellDef="let element">
-                <div class="app-book-history-table__change" [title]="element.description.new" *ngIf="element.description">
+                <div class="app-book-history-table__change" [title]="element.description.new"
+                     *ngIf="element.description">
                     <div class="app-book-history-table__change-new">
                         {{element.description.new}}
                     </div>

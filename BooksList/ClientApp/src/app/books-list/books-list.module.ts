@@ -12,6 +12,7 @@ import { AppBooksListTableComponent } from './books-list-table/books-list-table.
 import { MatSortModule } from '@angular/material/sort';
 import { AppBookEditFormModule } from '../common/book-edit-form/book-edit-form.module';
 import { MatExpansionModule } from '@angular/material/expansion';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { RouterModule } from '@angular/router';
 
 @NgModule({
@@ -27,6 +28,7 @@ import { RouterModule } from '@angular/router';
     MatPaginatorModule,
     MatSortModule,
     MatExpansionModule,
+    MatProgressSpinnerModule,
     AppBookEditFormModule,
     CommonModule,
     RouterModule,

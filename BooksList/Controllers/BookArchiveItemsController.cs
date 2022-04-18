@@ -41,64 +41,6 @@ namespace BooksList.Controllers
             return archiveEntities;
         }
 
-        //// PUT: api/BookArchiveItems/5
-        //// To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
-        //[HttpPut("{id}")]
-        //public async Task<IActionResult> PutBookArchiveEntity(long id, BookArchiveEntity bookArchiveEntity)
-        //{
-        //    if (id != bookArchiveEntity.Id)
-        //    {
-        //        return BadRequest();
-        //    }
-
-        //    _context.Entry(bookArchiveEntity).State = EntityState.Modified;
-
-        //    try
-        //    {
-        //        await _context.SaveChangesAsync();
-        //    }
-        //    catch (DbUpdateConcurrencyException)
-        //    {
-        //        if (!BookArchiveEntityExists(id))
-        //        {
-        //            return NotFound();
-        //        }
-        //        else
-        //        {
-        //            throw;
-        //        }
-        //    }
-
-        //    return NoContent();
-        //}
-
-        //// POST: api/BookArchiveItems
-        //// To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
-        //[HttpPost]
-        //public async Task<ActionResult<BookArchiveEntity>> PostBookArchiveEntity(BookArchiveEntity bookArchiveEntity)
-        //{
-        //    _context.BookArchiveItems.Add(bookArchiveEntity);
-        //    await _context.SaveChangesAsync();
-
-        //    return CreatedAtAction(nameof(GetBookArchiveEntity), new { id = bookArchiveEntity.Id }, bookArchiveEntity);
-        //}
-
-        //// DELETE: api/BookArchiveItems/5
-        //[HttpDelete("{id}")]
-        //public async Task<IActionResult> DeleteBookArchiveEntity(long id)
-        //{
-        //    var bookArchiveEntity = await _context.BookArchiveItems.FindAsync(id);
-        //    if (bookArchiveEntity == null)
-        //    {
-        //        return NotFound();
-        //    }
-
-        //    _context.BookArchiveItems.Remove(bookArchiveEntity);
-        //    await _context.SaveChangesAsync();
-
-        //    return NoContent();
-        //}
-
         private bool BookArchiveEntityExists(long id)
         {
             return _context.BookArchiveItems.Any(e => e.Id == id);

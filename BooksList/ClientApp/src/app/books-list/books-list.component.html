@@ -7,11 +7,9 @@
                         Add a Book
                     </mat-panel-title>
                 </mat-expansion-panel-header>
-                <app-book-edit-form
-                        (bookSubmit)="createBook($event)"
-                        submitText="Create"
-                        [loading]="bookItemsLoading"
-                >
+                <app-book-edit-form (bookSubmit)="createBook($event)"
+                                    submitText="Create"
+                                    [loading]="bookItemsLoading">
                 </app-book-edit-form>
             </mat-expansion-panel>
         </mat-accordion>
@@ -21,8 +19,7 @@
         <input matInput type="text"
                [(ngModel)]="searchValue"
                [disabled]="bookItemsLoading"
-               (ngModelChange)="onSearch()"
-        >
+               (ngModelChange)="onSearch()">
         <button *ngIf="searchValue"
                 matSuffix
                 mat-icon-button
@@ -33,4 +30,9 @@
     </mat-form-field>
     <app-books-list-table [bookItems]="bookItemsFiltered" (rowClick)="bookClick($event)" *ngIf="bookItems">
     </app-books-list-table>
+    <mat-progress-spinner *ngIf="!bookItems"
+                          class="app-books-list__spinner"
+                          diameter="50"
+                          mode="indeterminate">
+    </mat-progress-spinner>
 </div>

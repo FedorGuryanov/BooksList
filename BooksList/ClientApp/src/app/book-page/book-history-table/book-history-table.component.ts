@@ -11,7 +11,15 @@ import { MatSort } from '@angular/material/sort';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class AppBookHistoryTableComponent implements OnChanges, AfterViewInit {
-  public readonly displayedColumns: string[] = ['title', 'authors', 'description', 'publishDate', 'changeDate'];
+  public readonly allColumns: string[] = ['title', 'authors', 'description', 'publishDate'];
+  public filterValues: Record<string, boolean> = {};
+  public filterTitles: Record<string, string> = {
+    title: 'Title',
+    authors: 'Authors',
+    description: 'Description',
+    publishDate: 'Publish Date'
+  };
+  public displayedColumns: string[] = this.allColumns;
   public readonly pageSizes: number[] = [10, 20, 50];
 
   @Input()
@@ -23,10 +31,12 @@ export class AppBookHistoryTableComponent implements OnChanges, AfterViewInit {
   @ViewChild(MatSort) sort: MatSort;
 
   constructor() {
+    this.allColumns.forEach(item => this.filterValues[item] = true);
   }
 
   public ngOnChanges(): void {
     this.dataSource.data = this.bookItems;
+    this.updateFilter();
   }
 
   public ngAfterViewInit() {
@@ -40,5 +50,14 @@ export class AppBookHistoryTableComponent implements OnChanges, AfterViewInit {
 
   public getChangeDateFormatted(date: string): string {
     return new Date(Date.parse(date)).toLocaleString();
+  }
+
+  public updateFilter(): void {
+    let filterCols = this.allColumns.filter(item => this.filterValues[item]);
+    if (!filterCols.length) {
+      filterCols = this.allColumns;
+    }
+    this.dataSource.data = this.bookItems.filter(item => filterCols.find(col => item[col]));
+    this.displayedColumns = [...filterCols, 'changeDate'];
   }
 }

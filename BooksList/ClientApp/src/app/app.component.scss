@@ -17,6 +17,17 @@
             color: $primary-text-color;
             font-weight: 100;
             font-size: 24px;
+            cursor: pointer;
+        }
+
+        &-note {
+            margin: auto 16px auto auto;
+            color: $primary-border-color;
+
+            a,
+            a:visited {
+                color: $primary-border-color;
+            }
         }
     }
 

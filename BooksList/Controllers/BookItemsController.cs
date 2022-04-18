@@ -116,6 +116,13 @@ namespace BooksList.Controllers
                 return NotFound();
             }
 
+            var archiveEntities = await _archiveContext.BookArchiveItems.Where(x => x.BookId == id).ToListAsync();
+            foreach (var archiveBook in archiveEntities)
+            {
+                _archiveContext.BookArchiveItems.Remove(archiveBook);
+            }
+            await _archiveContext.SaveChangesAsync();
+
             _context.BookItems.Remove(bookEntity);
             await _context.SaveChangesAsync();
 
