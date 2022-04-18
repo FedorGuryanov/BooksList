@@ -17,3 +17,7 @@ You can use any type of storage for the history that makes sense to you.
 Purpose of this is to get to know your code style, so its not necessary to write unit tests and long documentation. You can make use of open source and free UI components as you see fit.
 
 Since that task is not confidential, you can host the project in any public git repository or send the code to use in another way you prefer, but it should include the commits.
+
+## How to run
+
+To run the whole project - open `BooksList.sln` in Visual Studio and run the project.
